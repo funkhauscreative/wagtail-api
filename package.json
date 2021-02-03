@@ -1,0 +1,14 @@
+{
+  "name": "wagtail-api",
+  "version": "1.0.0",
+  "description": "An axios wrapper to easily fetch wagtail data from it's api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Funkhaus Creative",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
