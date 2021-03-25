@@ -52,17 +52,26 @@ export class PagesAPIModel extends TranslatableAPIModel {
 			}
 
 		} catch(error) {
-			if (error.response.status != 400 && error.response.status != 404) {
+			if (error.response.status == 400 || error.response.status == 404) {
+
+				throw {
+					data: "404 not found",
+					status: 404
+				}
+			} else if (error.response.status == 301 || error.response.status == 302) {
+				throw {
+					data: error.response.data.detail,
+					status: error.response.status
+				};
+			} else {
 				throw {
 					data: "500 Internal Server Error",
 					status: 500
 				};
 			}
 		}
-		throw {
-			data: "404 not found",
-			status: 404
-		};
+
+
 
 	}
 
