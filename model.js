@@ -56,6 +56,7 @@ export class PagesAPIModel extends TranslatableAPIModel {
 
 				throw {
 					data: "404 not found",
+					url: path,
 					status: 404
 				}
 			} else if (error.response.status == 301 || error.response.status == 302) {
@@ -66,6 +67,7 @@ export class PagesAPIModel extends TranslatableAPIModel {
 			} else {
 				throw {
 					data: "500 Internal Server Error",
+					url: path,
 					status: 500
 				};
 			}
@@ -96,6 +98,7 @@ export class SnippetAPIModel extends TranslatableAPIModel {
 		} else {
 			throw {
 				data: "404 not found",
+				url: path,
 				status: 404
 			};
 		}
