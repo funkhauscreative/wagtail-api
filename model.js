@@ -39,7 +39,15 @@ export class TranslatableAPIModel extends APIModel {
 
 export class PagesAPIModel extends TranslatableAPIModel {
 	async $path(path, resolve = true) {
-		let requestStr = "?absolute_path="+path;
+
+		// in case a page preview is served
+		// requires torchbox/wagtail-headless-preview to be configured in wagtail
+	  let params = (new URL("http://domain.de" + path)).searchParams;
+    if (params.get('content_type') && params.get('token')) {
+      return await this.$apiAdapter.preview.$get(path, false);
+    } else {
+      let requestStr = "?absolute_path="+path;
+    }
 
 		try {
 			let pages = await this.$get(requestStr, false);

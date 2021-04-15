@@ -1,6 +1,6 @@
 {
   "name": "wagtail-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An axios wrapper to easily fetch wagtail data from it's api",
   "main": "index.js",
   "scripts": {
