@@ -3,7 +3,7 @@
 export class APIModel {
 	constructor(modelType, $apiAdapter) {
 		this.modelType = modelType;
-		this.slug = "/" + modelType + "/";
+		this.slug = modelType + "/";
 		this.$apiAdapter = $apiAdapter;
 		this.$axios = this.$apiAdapter.$axios;
 	}
@@ -39,16 +39,8 @@ export class TranslatableAPIModel extends APIModel {
 
 export class PagesAPIModel extends TranslatableAPIModel {
 	async $path(path, resolve = true) {
-
-		// in case a page preview is served
-		// requires torchbox/wagtail-headless-preview to be configured in wagtail
-	  let params = (new URL("http://domain.de" + path)).searchParams;
-    if (params.get('content_type') && params.get('token')) {
-      return await this.$apiAdapter.preview.$get(path, false);
-    }
-    
-    let requestStr = "?absolute_path="+path;
-
+		
+		let requestStr = "?absolute_path="+path;
 		try {
 			let pages = await this.$get(requestStr, false);
 
