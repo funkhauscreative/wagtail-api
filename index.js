@@ -19,7 +19,8 @@ class WagtailAPI {
 		this.settings = new APIModel("settings", this);
 		this.form = new APIModel("forms", this);
 
-		// setup pages endpoint
+		// requires torchbox/wagtail-headless-preview to be configured in wagtail
+		this.preview = new APIModel("preview", this);
 	}
 
 	addSnippetEndpoint(name) {

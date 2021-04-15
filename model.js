@@ -72,10 +72,8 @@ export class PagesAPIModel extends TranslatableAPIModel {
 				};
 			}
 		}
-
-
-
 	}
+
 
 	async $getTranslationsOf($param) {
 		// first check if only a page path or snippet name is reuested
