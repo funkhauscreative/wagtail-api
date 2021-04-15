@@ -45,9 +45,9 @@ export class PagesAPIModel extends TranslatableAPIModel {
 	  let params = (new URL("http://domain.de" + path)).searchParams;
     if (params.get('content_type') && params.get('token')) {
       return await this.$apiAdapter.preview.$get(path, false);
-    } else {
-      let requestStr = "?absolute_path="+path;
     }
+    
+    let requestStr = "?absolute_path="+path;
 
 		try {
 			let pages = await this.$get(requestStr, false);
