@@ -23,7 +23,15 @@ export class APIModel {
 	}
 
 	$update(id, data, headers) {
-		return this.$axios.update(this.slug + id + "/", data, headers);
+		return this.$patch(id, data, headers);
+	}
+
+	$patch(id, data, headers) {
+		return this.$axios.patch(this.slug + id, data, headers);
+	}
+
+	$put(id, data, headers) {
+		return this.$axios.put(this.slug + id, data, headers);
 	}
 
 	$delete(id) {
