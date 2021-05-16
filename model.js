@@ -19,7 +19,7 @@ export class APIModel {
 	}
 
 	async $post(id, data, headers) {
-		return (await this.$axios.post(this.slug + id + "/", data, headers)).data;
+		return (await this.$axios.post(this.slug + id, data, headers)).data;
 	}
 
 	$update(id, data, headers) {
@@ -35,7 +35,7 @@ export class APIModel {
 	}
 
 	$delete(id) {
-		return this.$axios.delete(this.slug + id + "/")
+		return this.$axios.delete(this.slug + id)
 	}
 }
 
