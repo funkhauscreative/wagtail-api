@@ -9,7 +9,9 @@ export class APIModel {
 	}
 
 	async $get(path = '', localize = true) {
-		if (localize && this.$apiAdapter.config.multilingual?.enabled) {
+		if (localize && 
+			this.$apiAdapter.config.multilingual && 
+			this.$apiAdapter.config.multilingual.enabled) {
 			var url = new URL('https://placeholder.de' + this.slug + path);
 			url.searchParams.append('locale', this.$apiAdapter.app.i18n.locale);
 			return (await this.$axios.get(url.toString().replace('https://placeholder.de', ''))).data;
