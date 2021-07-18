@@ -26,6 +26,10 @@ class WagtailAPI {
 	addSnippetEndpoint(name) {
 		this[name] = new SnippetAPIModel(name, this);
 	}
+
+	install(Vue, options = {}) {
+		Vue.config.globalProperties.$wagtail = new WagtailAPI(Vue, options);
+	}
 }
 
 
