@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { APIModel, TranslatableAPIModel, PagesAPIModel, SnippetAPIModel } from './model.js';
+import { APIModel, TranslatableAPIModel, PagesAPIModel, SnippetAPIModel } from './model.mjs';
 
 
 class WagtailAPI {
